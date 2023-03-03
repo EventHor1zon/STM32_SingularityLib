@@ -217,8 +217,8 @@
 //   /* Infinite loop */
 //   for(;;)
 //   {
-// 		HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
-// 		osDelay(20);
+//         HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_12);
+//         osDelay(20);
 //   }
 //   /* USER CODE END 5 */ 
 // }
