@@ -50,3 +50,14 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# user-added
+
+.vscode/
+.env/
+arm-none-eabi-gcc.cmake
+CMakeCache.txt
+Makefile
+.clangd
+.clang-format
+CMakeFiles/
