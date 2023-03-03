@@ -52,12 +52,15 @@ Mkfile.old
 dkms.conf
 
 # user-added
-
 .vscode/
 .env/
+
+# cmake files
 arm-none-eabi-gcc.cmake
 CMakeCache.txt
 Makefile
+CMakeFiles/
+
+# clang files
 .clangd
 .clang-format
-CMakeFiles/
