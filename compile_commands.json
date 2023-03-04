@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/src",
+  "command": "arm-none-eabi-gcc -DSTM32F103 -I/src/Inc  -g   -mcpu=cortex-m3 -mfloat-abi=soft -mthumb -static -fdata-sections -ffunction-sections -Wall -Wl,-Map,Singularity.map -Wl,--gc-sections -Wl,--start-group,-lc,-lm -Wl,--end-group -Og -o CMakeFiles/Singularity_0.1.out.dir/Src/main.c.o   -c /src/Src/main.c",
+  "file": "/src/Src/main.c"
+}
+]

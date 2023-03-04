@@ -1,9 +1,8 @@
-#!/bin/bash
-
-USAGE="d_cmake_prep.sh [DIR]"
+USAGE="d_clang_build.sh [DIR]"
+SRC_DIRECTORY="/src"
 USERUID=$(id -u $USER)
 USERGID=$(id -g $USER)
-SRC_DIRECTORY="/src"
+
 
 if [ ! $# -gt 0 ]; then
     echo $USAGE
@@ -12,9 +11,7 @@ else
                     -u $USERUID:$USERGID \
                     --mount type=bind,src="$1",target="$SRC_DIRECTORY" \
                     stm32a1 \
-                    cmake -DCMAKE_BUILD_TYPE=Debug \
-                          -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
-                          $SRC_DIRECTORY"
+                    cmake --build /src -v"
 
     echo "running "$DOCKER_COMMAND
     $DOCKER_COMMAND

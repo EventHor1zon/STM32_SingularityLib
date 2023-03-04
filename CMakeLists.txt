@@ -16,9 +16,14 @@ enable_language(C ASM)
 
 # set the cmake std c++11
 set(CMAKE_CXX_STANDARD "c++11")
+
 set(EXECUTABLE ${PROJECT_NAME}_${PROJECT_VERSION}.out)
 set(TOOLCHAIN_PREFIX arm-none-eabi-)
+set(SUPPORT_FILES ${CMAKE_SOURCE_DIR}/SupportFiles)
+set(LINKER_PATH ${CMAKE_SOURCE_DIR}/SupportFiles/Linker)
+
 set(CORE_SOURCE_FILES     # add basic files here
+    ${SUPPORT_FILES}/Startup/startup_stm32f103c8tx.s
     ${PROJECT_SOURCE_DIR}/Src/main.c
 )
 
@@ -57,7 +62,7 @@ target_compile_options(${EXECUTABLE} PRIVATE
 
 # link options
 target_link_options(${EXECUTABLE} PRIVATE
-                        -T${CMAKE_SOURCE_DIR}/build_files/Linker/STM32F103C8TX_FLASH.ld
+                        -T${LINKER_PATH}/STM32F103C8TX_FLASH.ld
                         -mcpu=cortex-m3
                         -mthumb
                         -mfloat-abi=soft

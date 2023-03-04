@@ -273,6 +273,19 @@
 // }
 // #endif /* USE_FULL_ASSERT */
 
+void SystemInit (void)
+{
+#if defined(STM32F100xE) || defined(STM32F101xE) || defined(STM32F101xG) || defined(STM32F103xE) || defined(STM32F103xG)
+  #ifdef DATA_IN_ExtSRAM
+    SystemInit_ExtMemCtl(); 
+  #endif /* DATA_IN_ExtSRAM */
+#endif 
+
+  /* Configure the Vector Table location -------------------------------------*/
+#if defined(USER_VECT_TAB_ADDRESS)
+  SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM. */
+#endif /* USER_VECT_TAB_ADDRESS */
+}
 
 void _exit(int __status) {
     while(1) {
