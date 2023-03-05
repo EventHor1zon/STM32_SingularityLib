@@ -11,7 +11,7 @@
 #                           if editor support not available. Remember to open port!
 
 
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 WORKDIR /tools
 
 # arm gcc toolchain download path
@@ -20,7 +20,7 @@ ENV GCC_ARM_FILENAME=gcc-arm-none-eabi-10-2020-q4-major
 
 RUN apt-get update
 # default build-essential fails w. 404 error so use specific focal version of libcurl4
-RUN apt-get install -y libcurl4=7.68.0-1ubuntu2 wget gcc g++ cppcheck cmake clangd-12
+RUN apt-get install -y wget gcc build-essential socat cppcheck cmake clangd-12
 
 # download & unzip toolchain
 RUN wget $GCC_ARM_DOWNLOAD_URL
@@ -30,7 +30,7 @@ ENV PATH=${PATH}:/tools/$GCC_ARM_FILENAME/bin:/tools/$GCC_ARM_FILENAME/arm-none-
 # check versions
 RUN echo "Installed gcc-arm-none-eabi version "$(arm-none-eabi-gcc --version)
 RUN echo "Installed ccpcheck version "$(cppcheck --version)
-RUN echo "Installed ccpcheck version "$(clang-format-9 --version)
+RUN echo "Installed clang-format version "$(clang-format-9 --version)
 
 RUN echo "Tool install complete"
 
