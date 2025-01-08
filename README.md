@@ -4,7 +4,7 @@ Attempt at writing some RTOS based STM32 interface drivers.
 
 ## Goals
 
-- Write a FreeRTOS based object-oriented bare-metal STM32 library
+- Write a FreeRTOS based STM32 library
 - Asynchronous interrupt/event-driven interface drivers
 - Common interface drivers, gpio, i2c, basic SPI, ring buffer, watchdogs, etc
 - Write connection layer utilising dma to enable rapid data transfer between peripherals
